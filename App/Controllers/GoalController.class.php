@@ -1,7 +1,7 @@
 <?php
 
-include_once '../App/Models/Database.class.php';
-include_once '../App/Models/Goal.class.php';
+include_once ROOT_PATH.'/App/Models/Database.class.php';
+include_once ROOT_PATH.'/App/Models/Goal.class.php';
 
 class GoalController
 {

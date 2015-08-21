@@ -3,7 +3,7 @@
 		<h2 style="color: lightblue" class="text-center"><?php echo $message; ?></h2>
 	</div>
 	<h2>Add Goal</h2>
-	<form method="post" action="/add_goal.php">
+	<form method="post" action="../App/Controllers/Scripts/add_goal.php">
 		<div class="form-group">
 			<label>Enter a title for your new goal:</label>
 			<input class="form-control" type="text" name="title" placeholder="Enter Title...">
@@ -22,4 +22,5 @@
 		</div>
 			<button class="btn btn-info btn-block" type="submit">Submit</button>
 	</form>
+	<a href="register" class="btn btn-info">Register</a>
 </div>

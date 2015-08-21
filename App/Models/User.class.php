@@ -1,7 +1,7 @@
 <?php
 
-	include_once '../config.php';
-	include_once 'Database.class.php';
+	include_once $_SERVER["DOCUMENT_ROOT"] . '/config.php';
+	include_once ROOT_PATH.'/App/Models/Database.class.php';
 
 class User
 {
@@ -10,7 +10,7 @@ class User
 	{
 		
 		$this->username = $username;
-		$this->$password = $password;
+		$this->password = $password;
 		
 	}
 	

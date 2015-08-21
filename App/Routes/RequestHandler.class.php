@@ -16,7 +16,7 @@ class RequestHandler
 						require '../App/Templates/goal_index.php';
 						break;
 				// About page
-				case '/register':
+				case '/public_html/register':
 						require '../App/Templates/register.php';
 						break;
 				// Everything else

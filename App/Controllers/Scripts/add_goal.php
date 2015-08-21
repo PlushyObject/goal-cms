@@ -1,9 +1,9 @@
 <?php
-	
-	include_once 'config.php';
-	include_once 'App/Models/Database.class.php';
-	include_once 'App/Models/Goal.class.php';
-	include_once 'App/Controllers/GoalController.class.php';
+
+	include_once $_SERVER["DOCUMENT_ROOT"].'/config.php';
+	include_once ROOT_PATH.'/App/Models/Database.class.php';
+	include_once ROOT_PATH.'/App/Models/Goal.class.php';
+	include_once ROOT_PATH.'/App/Controllers/GoalController.class.php';
 
 
 	$userTitle = $_POST['title'];
