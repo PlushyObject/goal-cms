@@ -10,10 +10,10 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="/public_html/css/normalize.css">
+        <link rel="stylesheet" href="/public_html/css/main.css">
+        <link rel="stylesheet" href="/public_html/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <script src="/public_html/js/vendor/modernizr-2.8.3.min.js"></script>
 			
 			<style>
 				

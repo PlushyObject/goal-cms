@@ -17,6 +17,6 @@
 	$GoalCtrl = new GoalController;
 	$GoalCtrl->save_goal($Goal);
 
-	header('Location: /index.php?message=save_success');
+	header('Location: /public_html/index.php?message=save_success');
 
 ?>

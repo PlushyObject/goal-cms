@@ -1,6 +1,6 @@
 <?php
 
-include_once 'config.php';
+include_once '../config.php';
 include_once 'Database.class.php';
 include_once 'Goal.class.php';
 include_once 'GoalIndex.class.php';

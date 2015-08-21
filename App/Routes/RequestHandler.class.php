@@ -13,15 +13,15 @@ class RequestHandler
 		switch ($request_uri[0]) {
 				// Home page
 				case '/':
-						require 'App/Templates/goal_index.php';
+						require '../App/Templates/goal_index.php';
 						break;
 				// About page
 				case '/register':
-						require 'App/Templates/register.php';
+						require '../App/Templates/register.php';
 						break;
 				// Everything else
 				default:
-						require 'App/Templates/goal_index.php'; //Switch this to 404
+						require '../App/Templates/goal_index.php'; //Switch this to 404
 						break;
 			
 		}

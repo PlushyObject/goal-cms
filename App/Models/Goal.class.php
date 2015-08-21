@@ -1,7 +1,7 @@
 <?php
 
-	include_once 'config.php';
-	include_once 'App/Models/Database.class.php';
+	include_once '../config.php';
+	include_once 'Database.class.php';
 
 class Goal
 	{
