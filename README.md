@@ -1,2 +1,2 @@
 # Goal Manager
-Bootstrap Sass PHP boilerplate
+Goal-based content management system written in PHP.

@@ -21,10 +21,7 @@ class GoalController
 		$addGoal->bindParam (":startDate", $Goal->startDate, PDO::PARAM_STR);
 		$addGoal->bindParam (":endDate", $Goal->endDate, PDO::PARAM_STR);
 		$addGoal->execute();
-
-		$save_success = true;
-
-		header('Location: /index.php?save_success='.$save_success);
+		
 	}
 	
 	

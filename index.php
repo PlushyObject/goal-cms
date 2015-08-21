@@ -6,6 +6,7 @@ include_once 'App/Models/Goal.class.php';
 include_once 'App/Models/GoalIndex.class.php';
 include_once 'App/Models/User.class.php';
 include_once 'App/Controllers/GoalController.class.php';
+include_once 'App/Routes/RequestHandler.class.php';
 
 ?>
 
@@ -15,11 +16,16 @@ include_once 'App/Controllers/GoalController.class.php';
 
 	$message = 'Create a goal to get started on your wellness journey!';
 
-	if(isset($_GET['save_success']) && $_GET['save_success']):
-		$message = $_GET['save_success']; 
+	if(isset($_GET['message'])):
+		if( $_GET['message'] == 'save_success'):
+			$message = 'Awesome! You Created a Goal!';
+		endif;
 	endif;
+
+	$rh = new RequestHandler;
+
+	$rh->display_view($message);
+
 ?>
-	
-<?php include 'App/Templates/goal_index.php' ?>
 	
 <?php include 'footer.php' ?>
