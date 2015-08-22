@@ -15,10 +15,10 @@ class UserController
 
 		$query = "INSERT INTO users (username, password) VALUES (:username, :password)";
 
-		$addGoal = $db->prepare($query);
-		$addGoal->bindParam (":username", $User->username, PDO::PARAM_STR);
-		$addGoal->bindParam (":password", $User->password, PDO::PARAM_STR);
-		$addGoal->execute();
+		$addUser = $db->prepare($query);
+		$addUser->bindParam (":username", $User->username, PDO::PARAM_STR);
+		$addUser->bindParam (":password", $User->password, PDO::PARAM_STR);		
+		$addUser->execute();
 		
 	}
 	

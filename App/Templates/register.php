@@ -2,6 +2,7 @@
 	<div class="row">
 
 		<div class="col-md-6 col-md-offset-3" style="padding-top: 100px">
+			<h2 style="color: lightblue" class="text-center"><?php echo $message; ?></h2>
 			<h2>Register Your Account</h2>
 			<form method="post" action="../App/Controllers/Scripts/add_user.php">
 				<div class="form-group">

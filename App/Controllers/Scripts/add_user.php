@@ -15,6 +15,8 @@
 	$UserCtrl = new UserController;
 	$UserCtrl->save_user($User);
 
-	header('Location: /public_html/index.php?message=register_success');
+	header('Location: /public_html/register?message=user_saved');
+
+	
 
 ?>
