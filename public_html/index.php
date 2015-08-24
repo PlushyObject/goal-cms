@@ -31,8 +31,9 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 			$message = 'Awesome! You Created a Goal!';
 		elseif ($_GET['message'] == 'user_saved'):
 			$message = 'Awesome! You are Totally Registered!';
-		elseif ($_GET['message'] == 'user_error'):
+		elseif ($_GET['message'] == 'user_exists'):
 			$message = 'It Appears that Username is Taken!';
+        
 		endif;
 	endif;
 

@@ -14,9 +14,13 @@
 	$User = new User ($userUsername, $userPassword, $userEmail);
 
 	$UserCtrl = new UserController;
-	$UserCtrl->save_user($User);
 
-	header('Location: /public_html/register?message=user_saved');
+    if($UserCtrl->if_username_exists($User)):
+      header('Location: /public_html/register?message=user_exists');
+    else:
+      $UserCtrl->save_user($User);
+      header('Location: /public_html/register?message=user_saved');
+    endif;
 
 	
 
