@@ -10,6 +10,11 @@
 					<input class="form-control" type="text" name="username" maxlength="16" placeholder="Enter Username..." id="new-user-username" required>
 					<span id="new-username-info"></span>
 				</div>
+              <div class="form-group">
+					<label>Create Your Email:</label>
+					<input class="form-control" type="email" name="email" placeholder="Enter Email..." id="new-user-email" required>
+					<span id="new-email-info"></span>
+				</div>
 				<div class="form-group">
 					<label>Create Your Password:</label>
 					<input class="form-control" type="password" name="password" placeholder="Enter Password..." id="new-user-password" required>
@@ -20,7 +25,7 @@
 					<input class="form-control" type="password" name="verify" placeholder="Verify Password..." id="new-user-verify" required>
 					<span id="verify-password-info"></span>
 				</div>
-				<button type="submit" class="btn btn-info" disabled>Create Account</button>
+				<button type="submit" class="btn btn-info">Create Account</button>
 			</form>	
 			
 			<button class="btn btn-info" id="check-username">Check Username</button>

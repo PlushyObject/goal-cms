@@ -6,10 +6,11 @@
 class User
 {
 	
-	public function __construct($username, $password)
+	public function __construct($username, $password, $email)
 	{
 		
 		$this->username = $username;
+		$this->email = $email;
 		$this->password = $password;
 		
 	}

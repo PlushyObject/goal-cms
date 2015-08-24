@@ -10,6 +10,16 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 
 ?>
 
+<?php
+
+	session_start();
+
+	$_SESSION["StartTime"] = date("l");
+
+
+
+?>
+
 <?php include '../App/Templates/partials/html_head.php'; ?>
 
 <?php 
@@ -32,6 +42,7 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 
 ?>
 
+<h1><?php echo strtotime($_SESSION["StartTime"]), "\n"; ?></h1>
 
 	
 <?php include '../App/Templates/partials/footer.php' ?>

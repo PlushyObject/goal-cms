@@ -7,10 +7,11 @@
 
 
 	$userUsername = $_POST['username'];
+	$userEmail = $_POST['email'];
 	$userPassword = $_POST['password'];
 
 
-	$User = new User ($userUsername, $userPassword);
+	$User = new User ($userUsername, $userPassword, $userEmail);
 
 	$UserCtrl = new UserController;
 	$UserCtrl->save_user($User);
