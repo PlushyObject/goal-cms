@@ -20,7 +20,9 @@ class GoalController
       
         $goalCreator = $_SESSION['Email'];
 
-		$query = "INSERT INTO goals (title, description, creator, startDate, endDate) VALUES (:title, :description, :creator, :startDate, :endDate); INSERT INTO users_goals (goal_email, goal_id ) VALUES (:goal_email, :, :goal_id)";
+		$query = "INSERT INTO goals (title, description, creator, startDate, endDate) VALUES (:title, :description, :creator, :startDate, :endDate); INSERT INTO users_goals (goal_email, goal_id ) VALUES (:goal_email, :goal_id)";
+		
+		$last_id = $db->lastInsertId();
 
 		$addGoal = $db->prepare($query);
 		$addGoal->bindParam (":title", $Goal->title, PDO::PARAM_STR);
@@ -28,8 +30,8 @@ class GoalController
 		$addGoal->bindParam (":creator", $Goal->creator, PDO::PARAM_STR);
 		$addGoal->bindParam (":startDate", $Goal->startDate, PDO::PARAM_STR);
 		$addGoal->bindParam (":endDate", $Goal->endDate, PDO::PARAM_STR);
-        $addGoal->bindParam (":goal_email", $Goal->creator, PDO::PARAM_STR);
-		$addGoal->bindParam (":goal_id", $db->lastInsertId(), PDO::PARAM_STR);
+    $addGoal->bindParam (":goal_email", $Goal->creator, PDO::PARAM_STR);
+		$addGoal->bindParam (":goal_id", $last_id, PDO::PARAM_STR);
 		$addGoal->execute();
 	}
 	

@@ -16,7 +16,9 @@
 
     $UserCtrl->login_user($User);
 
-    session_start();
+		if(!isset( $_SESSION)):
+    	session_start();
+		endif;
 
     $_SESSION['Email'] = $User->email;
 
