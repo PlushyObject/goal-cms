@@ -14,13 +14,12 @@
 
 	$UserCtrl = new UserController;
 
-    if($UserCtrl->check_if_user_exists($User)):
-      header('Location: /public_html/register?message=user_exists');
-    else:
-      $UserCtrl->save_user($User);
-      header('Location: /public_html/register?message=user_saved');
-    endif;
+    $UserCtrl->login_user($User);
 
-	
+    session_start();
+
+    $_SESSION['Email'] = $User->email;
+
+	header('Location: /public_html/login?message=login_success');
 
 ?>

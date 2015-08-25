@@ -10,6 +10,16 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 
 ?>
 
+<?php
+
+  session_start();  
+
+  if(isset($_SESSION['Email'])):
+    echo $_SESSION['Email'];
+  endif;
+
+?>
+
 <?php include '../App/Templates/partials/html_head.php'; ?>
 
 <?php 
@@ -21,17 +31,24 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 			$message = 'Awesome! You Created a Goal!';
 		elseif ($_GET['message'] == 'user_saved'):
 			$message = 'Awesome! You are Totally Registered!';
-		elseif ($_GET['message'] == 'user_error'):
+		elseif ($_GET['message'] == 'user_exists'):
 			$message = 'It Appears that Username is Taken!';
+        
 		endif;
 	endif;
 
 	$rh = new RequestHandler;
 
+    ?>
+  
+    <h2><a href="/public_html/logout">Logout</a></h2>
+
+    <?php
+
 	$rh->display_view($message);
 
+
+
+include '../App/Templates/partials/footer.php' 
+
 ?>
-
-
-	
-<?php include '../App/Templates/partials/footer.php' ?>

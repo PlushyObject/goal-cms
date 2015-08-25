@@ -19,6 +19,12 @@ class RequestHandler
 				case '/public_html/register':
 						require '../App/Templates/register.php';
 						break;
+                case '/public_html/login':
+						require '../App/Templates/login.php';
+						break;
+                case '/public_html/logout':
+						require '../App/Controllers/Scripts/user_logout.php';
+						break;
 				// Everything else
 				default:
 						require '../App/Templates/goal_index.php'; //Switch this to 404
