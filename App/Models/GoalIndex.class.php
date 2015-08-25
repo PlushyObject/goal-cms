@@ -14,7 +14,7 @@ class GoalIndex
 		$dbObject = new Database;
 		$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
 
-		$query = "SELECT * from goals ORDER BY id DESC";
+		$query = "SELECT * from goals ORDER BY goal_id DESC";
 
 		$allGoals = $db->prepare($query);
 		$allGoals->execute();
@@ -34,6 +34,7 @@ class GoalIndex
 
 			$goalTitle = $goal->title;
 			$goalDesc = $goal->description;
+			$goalCreator = $goal->creator;
 			$goalStart = $goal->startDate;
 			$goalEnd = $goal->endDate;
 		
@@ -45,6 +46,7 @@ class GoalIndex
 			<div class="well" style="margin-top: 15px;">
 				<h1><?php echo $goalTitle; ?></h1>
 				<p><?php echo $goalDesc; ?></p>
+				<h3><?php echo $goalCreator; ?></h3>
 				<h3><?php echo $goalStart; ?></h3>
 				<h3><?php echo $goalEnd; ?></h3>
 			</div>

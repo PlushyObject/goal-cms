@@ -1,10 +1,9 @@
 
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/register-form.js"></script>
+        <script src="/public_html/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="/public_html/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/public_html/js/plugins.js"></script>
+        <script src="/public_html/js/main.js"></script>
+        <script src="/public_html/js/register-form.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

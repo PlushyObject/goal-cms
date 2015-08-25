@@ -20,6 +20,6 @@
 
     $_SESSION['Email'] = $User->email;
 
-	header('Location: /public_html/login?message=login_success');
+	header('Location: /public_html/index?message=login_success');
 
 ?>
