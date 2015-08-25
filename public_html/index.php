@@ -12,11 +12,11 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 
 <?php
 
-	session_start();
+  session_start();  
 
-	$_SESSION["StartTime"] = date("l");
-
-
+  if(isset($_SESSION['Email'])):
+    echo $_SESSION['Email'];
+  endif;
 
 ?>
 
@@ -39,11 +39,16 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 
 	$rh = new RequestHandler;
 
+    ?>
+  
+    <h2><a href="/public_html/logout">Logout</a></h2>
+
+    <?php
+
 	$rh->display_view($message);
 
+
+
+include '../App/Templates/partials/footer.php' 
+
 ?>
-
-<h1><?php echo strtotime($_SESSION["StartTime"]), "\n"; ?></h1>
-
-	
-<?php include '../App/Templates/partials/footer.php' ?>

@@ -6,7 +6,7 @@ include_once ROOT_PATH.'/App/Models/User.class.php';
 class UserController
 {
 	
-    public function if_username_exists($User)
+    public function check_if_user_exists($User)
     {
       
         $dbObject = new Database;
@@ -23,9 +23,30 @@ class UserController
           return true;
         else:
           return false;
-        endif;
-        
+        endif;  
     
+    }
+  
+  
+    public function login_user($User)
+    {
+      $dbObject = new Database;
+      $db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
+      
+      $query = "SELECT * FROM users WHERE email=:email";
+      $loginUser = $db->prepare($query);
+      $loginUser->bindParam (":email", $User->email, PDO::PARAM_STR);
+      $loginUser->execute();
+      
+      $userRow = $loginUser->fetch(PDO::FETCH_ASSOC);
+      
+      if( $userRow->email = $User->email && $userRow->password = $User->password ):
+        
+        session_start();
+      
+        $_SESSION['Email'] = $userRow->email;
+      
+      endif;
     }
   
 	public function save_user($User)
@@ -34,10 +55,9 @@ class UserController
 		$dbObject = new Database;
 		$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
 
-		$query = "INSERT INTO users (username, password, email) VALUES (:username, :password, :email)";
+		$query = "INSERT INTO users (email, password) VALUES ( :email, :password)";
 
 		$addUser = $db->prepare($query);
-		$addUser->bindParam (":username", $User->username, PDO::PARAM_STR);
 		$addUser->bindParam (":email", $User->email, PDO::PARAM_STR);		
 		$addUser->bindParam (":password", $User->password, PDO::PARAM_STR);		
 		$addUser->execute();            
