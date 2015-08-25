@@ -23,7 +23,7 @@ var RegisterFormValidate = (function(){
 				patt = /(?=^.{6,255}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9])(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9]))^.*/;
 			}
 			
-			var res = patt.test(str);
+			var res = patt.test(str); 
 			
 			return res;
 			
@@ -77,3 +77,23 @@ $('#new-user-verify').change(function(){
 
 });
 
+$('#new-user-verify').change(function(){
+	
+	var $userUsername = $('#new-user-username').val();
+	var $userPassword = $('#new-user-password').val();
+	var $userVerify = $('#new-user-verify').val();
+	
+	var validUsername = RegisterFormValidate.checkInput('username', $userUsername);
+	var validPassword = RegisterFormValidate.checkInput('password', $userPassword);
+	
+	alert('This Fired');
+	
+	if(validUsername && validPassword && $userVerify == $userPassword){
+		
+		$('#btn-submit-registration').prop('disabled',false);
+		
+	}
+	
+	
+	
+});
