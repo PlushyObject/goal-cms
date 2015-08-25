@@ -8,13 +8,15 @@ class Goal
 	
 		public $title = '';
 		public $description = '';
+		public $creator = '';
 		public $startDate = '';
 		public $endDate = '';
 
-		public function __construct( $title, $description, $startDate, $endDate )
+		public function __construct( $title, $description, $creator, $startDate, $endDate )
 		{
 				$this->title = $title;
 				$this->description = $description;
+				$this->creator = $creator;
 				$this->startDate = $startDate;	
 				$this->endDate = $endDate;	
 

@@ -6,7 +6,7 @@
 			<h2>Login to GoalCMS</h2>
 			<form method="post" action="../App/Controllers/Scripts/user_login.php">
 				<div class="form-group">
-					<label>Enter Your Username:</label>
+					<label>Enter Your Email:</label>
 					<input class="form-control" type="text" name="email" placeholder="Enter Username..." id="login-username" required>
 					<span id="new-username-info"></span>
 				</div>

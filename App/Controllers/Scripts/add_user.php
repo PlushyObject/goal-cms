@@ -18,7 +18,7 @@
       header('Location: /public_html/register?message=user_exists');
     else:
       $UserCtrl->save_user($User);
-      header('Location: /public_html/register?message=user_saved');
+      header('Location: /public_html/login?message=user_saved');
     endif;
 
 	

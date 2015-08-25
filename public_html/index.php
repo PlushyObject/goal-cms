@@ -10,16 +10,6 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 
 ?>
 
-<?php
-
-  session_start();  
-
-  if(isset($_SESSION['Email'])):
-    echo $_SESSION['Email'];
-  endif;
-
-?>
-
 <?php include '../App/Templates/partials/html_head.php'; ?>
 
 <?php 
