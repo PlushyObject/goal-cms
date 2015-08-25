@@ -37,8 +37,11 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 
 	$rh->display_view($message);
 
+    ?>
 
 
+<?php
+      
 include '../App/Templates/partials/footer.php' 
 
 ?>

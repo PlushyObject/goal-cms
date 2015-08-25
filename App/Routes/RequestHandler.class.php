@@ -13,8 +13,13 @@ class RequestHandler
 		switch ($request_uri[0]) {
 				// Home page
 				case '/':
-						require '../App/Templates/goal_index.php';
-						break;
+                  session_start();
+                  if( isset($_SESSION) ):
+                    require '../App/Templates/goal_index.php';
+                    break;
+                  else:
+                    require '../App/Templates/login.php';
+                  endif;
 				// About page
 				case '/public_html/register':
 						require '../App/Templates/register.php';

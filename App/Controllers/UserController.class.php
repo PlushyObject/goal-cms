@@ -23,30 +23,44 @@ class UserController
           return true;
         else:
           return false;
-        endif;  
+        endif;
+        
+        $db = null;
     
     }
   
   
     public function login_user($User)
     {
-      $dbObject = new Database;
-      $db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
-      
-      $query = "SELECT * FROM users WHERE email=:email";
-      $loginUser = $db->prepare($query);
-      $loginUser->bindParam (":email", $User->email, PDO::PARAM_STR);
-      $loginUser->execute();
-      
-      $userRow = $loginUser->fetch(PDO::FETCH_ASSOC);
-      
-      if( $userRow->email = $User->email && $userRow->password = $User->password ):
+      try 
+      {
+        $dbObject = new Database;
+        $db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
+
+        $query = "SELECT * FROM users WHERE email=:email";
+        $loginUser = $db->prepare($query);
+        $loginUser->bindParam (":email", $User->email, PDO::PARAM_STR);
+        $loginUser->execute();
+
+        $userRow = $loginUser->fetch(PDO::FETCH_ASSOC);
+
+        if( $userRow->email = $User->email && $userRow->password = $User->password ):
+
+          session_start();
+          session_regenerate_id(true); 
+
+          $_SESSION['Email'] = $userRow->email;
+
+        endif;
         
-        session_start();
-      
-        $_SESSION['Email'] = $userRow->email;
-      
-      endif;
+        $db = null;
+
+      }
+      catch(PDOException $e)
+      {
+        echo $e->getMessage();
+
+      }
     }
   
 	public function save_user($User)
@@ -60,7 +74,9 @@ class UserController
 		$addUser = $db->prepare($query);
 		$addUser->bindParam (":email", $User->email, PDO::PARAM_STR);		
 		$addUser->bindParam (":password", $User->password, PDO::PARAM_STR);		
-		$addUser->execute();            
+		$addUser->execute();
+      
+        $db = null;
 
 	}
 	
