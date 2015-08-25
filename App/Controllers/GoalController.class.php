@@ -30,9 +30,29 @@ class GoalController
 		$addGoal->bindParam (":creator", $Goal->creator, PDO::PARAM_STR);
 		$addGoal->bindParam (":startDate", $Goal->startDate, PDO::PARAM_STR);
 		$addGoal->bindParam (":endDate", $Goal->endDate, PDO::PARAM_STR);
-    $addGoal->bindParam (":goal_email", $Goal->creator, PDO::PARAM_STR);
+        $addGoal->bindParam (":goal_email", $Goal->creator, PDO::PARAM_STR);
 		$addGoal->bindParam (":goal_id", $last_id, PDO::PARAM_STR);
 		$addGoal->execute();
+      
+        $db = null;
+      
+        $dbObject2 = new Database;
+		$db2 = $dbObject2->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
+      
+        $goalCreator = $_SESSION['Email'];
+
+		$query = "INSERT INTO users_goals (goal_email, goal_id ) VALUES (:goal_email, :goal_id)";
+		
+		$last_id = $db2->lastInsertId();
+
+		$addGoal = $db2->prepare($query);
+        $addGoal->bindParam (":goal_email", $Goal->creator, PDO::PARAM_STR);
+		$addGoal->bindParam (":goal_id", $last_id, PDO::PARAM_STR);
+		$addGoal->execute();
+      
+        $db = null;
+      
+        
 	}
 	
 	
