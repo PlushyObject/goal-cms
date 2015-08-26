@@ -23,6 +23,8 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 			$message = 'Awesome! You are Totally Registered!';
 		elseif ($_GET['message'] == 'user_exists'):
 			$message = 'It Appears that Username is Taken!';
+		elseif ($_GET['message'] == 'user_does_not_exist'):
+			$message = "That email does not currently exist in our database. <a href='/public_html/register'>Register Here</a>";
         
 		endif;
 	endif;
@@ -38,6 +40,8 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 	$rh->display_view($message);
 
     ?>
+
+<h1><?php echo User::get_current_user_email(); ?></h1>
 
 
 <?php

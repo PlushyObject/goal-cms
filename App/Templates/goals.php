@@ -24,7 +24,7 @@
 			<?php
 
 				$GoalIndex = new GoalIndex;
-				$Goals = $GoalIndex->get_all_goals();
+				$Goals = Goal::get_all_goals();
 				$GoalIndex->print_goals($Goals);
 
 			?>

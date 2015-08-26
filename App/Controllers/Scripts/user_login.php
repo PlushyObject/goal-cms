@@ -9,14 +9,12 @@
 	$userEmail = $_POST['email'];
 	$userPassword = $_POST['password'];
 
-
 	$User = new User ($userEmail, $userPassword);
 
 	$UserCtrl = new UserController;
-    if($UserCtrl->check_if_user_exists($User)):
 
-      $UserCtrl->login_user($User);
-		else:
-			header('Location: /public_html/login?message=login_error');
-    endif;
+	if($UserCtrl->check_if_user_exists($User)):
+		$UserCtrl->login_user($User);		
+	endif;
+
 ?>
