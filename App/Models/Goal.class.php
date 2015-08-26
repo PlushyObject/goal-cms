@@ -5,20 +5,15 @@
 
 class Goal
 	{
-	
-		public $title = '';
-		public $description = '';
-		public $creator = '';
-		public $startDate = '';
-		public $endDate = '';
 
-		public function __construct( $title, $description, $creator, $startDate, $endDate )
+		public function __construct( $title, $description, $creator, $startDate, $endDate)
 		{
 				$this->title = $title;
 				$this->description = $description;
 				$this->creator = $creator;
 				$this->startDate = $startDate;	
-				$this->endDate = $endDate;	
+				$this->endDate = $endDate;
+				$this->completed = false;
 
 		}
 	
@@ -34,6 +29,21 @@ class Goal
 			$allGoals->execute();
 
 			return $allGoals;	
+
+		}
+	
+		public static function get_goal_by_id($id)
+		{
+
+			$dbObject = new Database;
+			$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
+
+			$query = "SELECT * from goals WHERE goal_id='$id'";
+
+			$Goal = $db->prepare($query);
+			$Goal->execute();
+
+			return $Goal;	
 
 		}
 	
@@ -58,9 +68,19 @@ class Goal
 
 		}
 	
-	
-	}
+		public static function print_goal_card($Goal)
+		{
+		
+			if( $Goal->completed && $Goal->creator == $_SESSION['Email'] ):
+				$goal_classes = 'goal-complete';
+			else:
+				$goal_classes = 'goal-incomplete';
+			endif;
+			
+			include '../App/Templates/goal_card.php';	
+			
+		}
 
-
+}
 
 ?>

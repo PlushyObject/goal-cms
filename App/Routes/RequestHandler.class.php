@@ -15,14 +15,14 @@ class RequestHandler
 				case '/':
 					session_start();
 					if( isset($_SESSION) ):
-						require '../App/Templates/goals.php';
+						require '../App/Templates/newsfeed.php';
 						break;
 					else:
 						require '../App/Templates/login.php';
 					endif;
 			
-				case '/public_html/goals':
-					require '../App/Templates/goals.php';
+				case '/public_html/newsfeed':
+					require '../App/Templates/newsfeed.php';
 					break;
 			
 				case '/public_html/register':
@@ -43,7 +43,7 @@ class RequestHandler
 			
 				// Everything else
 				default:
-					require '../App/Templates/goals.php'; //Switch this to 404
+					require '../App/Templates/newsfeed.php'; //Switch this to 404
 					break;
 			
 		}

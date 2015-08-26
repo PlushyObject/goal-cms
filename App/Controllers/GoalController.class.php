@@ -14,7 +14,7 @@ class GoalController
 				$dbObject = new Database;
 				$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
 
-				$query = "INSERT INTO goals (title, description, creator, startDate, endDate) VALUES (:title, :description, :creator, :startDate, :endDate)";
+				$query = "INSERT INTO goals (title, description, creator, startDate, endDate, completed) VALUES (:title, :description, :creator, :startDate, :endDate, :completed)";
 
 				$addGoal = $db->prepare($query);
 				$addGoal->bindParam (":title", $Goal->title, PDO::PARAM_STR);
@@ -22,6 +22,7 @@ class GoalController
 				$addGoal->bindParam (":creator", $Goal->creator, PDO::PARAM_STR);
 				$addGoal->bindParam (":startDate", $Goal->startDate, PDO::PARAM_STR);
 				$addGoal->bindParam (":endDate", $Goal->endDate, PDO::PARAM_STR);
+				$addGoal->bindParam (":completed", $Goal->completed, PDO::PARAM_BOOL);
 				$addGoal->execute();
 			
 				$last_id = $db->lastInsertId();

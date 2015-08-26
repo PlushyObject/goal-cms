@@ -1,7 +1,4 @@
 <div class="col-md-3">
-	<div class="message-wrapper" style="min-height:100px;">
-		<h2 style="color: lightblue" class="text-center"><?php echo $message; ?></h2>
-	</div>
 	<h2>Add Goal</h2>
 	<form method="post" action="../App/Controllers/Scripts/add_goal.php">
 		<div class="form-group">

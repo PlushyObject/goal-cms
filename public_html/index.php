@@ -8,22 +8,14 @@ include_once ROOT_PATH.'/App/Models/User.class.php';
 include_once ROOT_PATH.'/App/Controllers/GoalController.class.php';
 include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 
-?>
-
-<?php 
-
 	session_start();
 
 	if(isset($_SESSION['Email'])):
 		$sessionEmail = $_SESSION['Email'];
 	endif;
 
-?>
-
-<?php include '../App/Templates/partials/html_head.php'; ?>
-<?php include '../App/Templates/partials/navbar.php'; ?>
-
-<?php 
+	include '../App/Templates/partials/html_head.php';
+	include '../App/Templates/partials/navbar.php';
 
 	$message = 'Create a goal to get started on your wellness journey!';
 
@@ -36,23 +28,13 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 			$message = 'It Appears that Username is Taken!';
 		elseif ($_GET['message'] == 'user_does_not_exist'):
 			$message = "That email does not currently exist in our database. <a href='/public_html/register'>Register Here</a>";
-        
 		endif;
 	endif;
 
 	$rh = new RequestHandler;
 
-    ?>
-
-    <?php
-
 	$rh->display_view($message);
 
-    ?>
-
-
-<?php
-      
-include '../App/Templates/partials/footer.php' 
+	include '../App/Templates/partials/footer.php' 
 
 ?>

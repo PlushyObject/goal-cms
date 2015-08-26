@@ -22,12 +22,14 @@
 					margin-bottom: 15px;
 					
 				}
+				
+				.goal-complete{
+					border: 5px solid green;
+					
+				}
 			
 			</style>
-			
-			
-			
-			
+
     </head>
     <body>
         <!--[if lt IE 8]>

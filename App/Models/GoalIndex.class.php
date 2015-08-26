@@ -11,43 +11,27 @@ class GoalIndex
 	public function print_goals($Goals)
 	{
 
-		while ( $goal = $Goals->fetchObject() ):
+		while ( $goalData = $Goals->fetchObject() ):
 
-			$goalTitle = $goal->title;
-			$goalDesc = $goal->description;
-			$goalCreator = $goal->creator;
-			$goalStart = $goal->startDate;
-			$goalEnd = $goal->endDate;
+			$goalTitle = $goalData->title;
+			$goalDesc = $goalData->description;
+			$goalCreator = $goalData->creator;
+			$goalStart = date("l, F j", strtotime($goalData->startDate));
+			$goalEnd = date("l, F j", strtotime($goalData->endDate));
 		
-			$goalStart = date("l, F j", strtotime($goalStart));	
-			$goalEnd = date("l, F j", strtotime($goalEnd));	
-			
+			$Goal = new Goal($goalTitle, $goalDesc, $goalCreator, $goalStart, $goalEnd);
 		
-		?>
-			<div class="well" style="margin-top: 15px;">
-				<h2><?php echo $goalTitle; ?></h2>
-				<h3><?php echo $goalCreator; ?></h3>
-				<p><?php echo $goalDesc; ?></p>
-				<h4><?php echo $goalStart; ?></h4>
-				<h4><?php echo $goalEnd; ?></h4>
-			</div>
-
-		<?php
-		endwhile;
+			$Goal->goalId = $goalData->goal_id;
+			$Goal->completed = $goalData->completed;
+		
+ 			Goal::print_goal_card($Goal);
+		
+			endwhile;
+		
+		
 
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
