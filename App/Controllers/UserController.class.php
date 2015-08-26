@@ -12,14 +12,14 @@ class UserController
         $dbObject = new Database;
 		$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
       
-        $query = "SELECT * FROM users WHERE username=:username";
+        $query = "SELECT * FROM users WHERE email=:email";
         $checkUser = $db->prepare($query);
-		$checkUser->bindParam (":username", $User->username, PDO::PARAM_STR);
+		$checkUser->bindParam (":email", $User->email, PDO::PARAM_STR);
         $checkUser->execute();
         $allRows = $checkUser->fetchAll();
         $rowCount = count($allRows);
         
-        if($rowCount === 1):
+        if($rowCount):
           return true;
         else:
           return false;

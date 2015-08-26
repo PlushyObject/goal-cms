@@ -14,14 +14,19 @@
 
 	$UserCtrl = new UserController;
 
-    $UserCtrl->login_user($User);
+    if($UserCtrl->check_if_user_exists($User)):
 
-		if(!isset( $_SESSION)):
-    	session_start();
-		endif;
+      $UserCtrl->login_user($User);
 
-    $_SESSION['Email'] = $User->email;
+      if(!isset( $_SESSION)):
+        session_start();
+      endif;
 
-	header('Location: /public_html/index?message=login_success');
+      $_SESSION['Email'] = $User->email;
 
+      header('Location: /public_html/index?message=login_success');
+
+    else:
+      header('Location: /public_html/login?message=user_not_registered');
+    endif;
 ?>
