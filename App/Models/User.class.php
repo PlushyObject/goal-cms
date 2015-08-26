@@ -14,11 +14,13 @@ class User
 		
 	}
 	
-	public static function get_current_user_email()
+	public static function get_current_user()
 	{
 		
-		$currentUserEmail = $_SESSION['Email'];
-		return $currentUserEmail;
+		if(isset($_SESSION['Email'])):
+				$currentUser = $_SESSION['Email'];
+				return $currentUser;
+		endif;
 		
 	}
 	

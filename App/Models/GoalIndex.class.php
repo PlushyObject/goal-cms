@@ -25,11 +25,11 @@ class GoalIndex
 		
 		?>
 			<div class="well" style="margin-top: 15px;">
-				<h1><?php echo $goalTitle; ?></h1>
-				<p><?php echo $goalDesc; ?></p>
+				<h2><?php echo $goalTitle; ?></h2>
 				<h3><?php echo $goalCreator; ?></h3>
-				<h3><?php echo $goalStart; ?></h3>
-				<h3><?php echo $goalEnd; ?></h3>
+				<p><?php echo $goalDesc; ?></p>
+				<h4><?php echo $goalStart; ?></h4>
+				<h4><?php echo $goalEnd; ?></h4>
 			</div>
 
 		<?php

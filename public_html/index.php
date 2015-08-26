@@ -10,7 +10,18 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 
 ?>
 
+<?php 
+
+	session_start();
+
+	if(isset($_SESSION['Email'])):
+		$sessionEmail = $_SESSION['Email'];
+	endif;
+
+?>
+
 <?php include '../App/Templates/partials/html_head.php'; ?>
+<?php include '../App/Templates/partials/navbar.php'; ?>
 
 <?php 
 
@@ -32,16 +43,12 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 	$rh = new RequestHandler;
 
     ?>
-  
-    <h2><a href="/public_html/logout">Logout</a></h2>
 
     <?php
 
 	$rh->display_view($message);
 
     ?>
-
-<h1><?php echo User::get_current_user_email(); ?></h1>
 
 
 <?php
