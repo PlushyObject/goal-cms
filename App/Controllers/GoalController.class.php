@@ -9,55 +9,43 @@ class GoalController
 	
 	public function save_goal($Goal)
 	{
+		try
+		{
+				$dbObject = new Database;
+				$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
 
-		$dbObject = new Database;
-		$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
-      
-      
-        if(!isset($_SESSION)):
-          session_start();
-        endif;
-      
-        $goalCreator = $_SESSION['Email'];
+				$query = "INSERT INTO goals (title, description, creator, startDate, endDate) VALUES (:title, :description, :creator, :startDate, :endDate)";
 
-		$query = "INSERT INTO goals (title, description, creator, startDate, endDate) VALUES (:title, :description, :creator, :startDate, :endDate); INSERT INTO users_goals (goal_email, goal_id ) VALUES (:goal_email, :goal_id)";
-		
-		$last_id = $db->lastInsertId();
+				$addGoal = $db->prepare($query);
+				$addGoal->bindParam (":title", $Goal->title, PDO::PARAM_STR);
+				$addGoal->bindParam (":description", $Goal->description, PDO::PARAM_STR);
+				$addGoal->bindParam (":creator", $Goal->creator, PDO::PARAM_STR);
+				$addGoal->bindParam (":startDate", $Goal->startDate, PDO::PARAM_STR);
+				$addGoal->bindParam (":endDate", $Goal->endDate, PDO::PARAM_STR);
+				$addGoal->execute();
+			
+				$last_id = $db->lastInsertId();
+			
+				$query2 = "INSERT INTO users_goals (goal_email, goal_id ) VALUES (:goal_email, :goal_id)";
+			 
+				$saveGoalToUser = $db->prepare($query2);
+				$saveGoalToUser->bindParam (":goal_email", $Goal->creator, PDO::PARAM_STR);
+				$saveGoalToUser->bindParam (":goal_id", $last_id, PDO::PARAM_STR);
+				$saveGoalToUser->execute();
 
-		$addGoal = $db->prepare($query);
-		$addGoal->bindParam (":title", $Goal->title, PDO::PARAM_STR);
-		$addGoal->bindParam (":description", $Goal->description, PDO::PARAM_STR);
-		$addGoal->bindParam (":creator", $Goal->creator, PDO::PARAM_STR);
-		$addGoal->bindParam (":startDate", $Goal->startDate, PDO::PARAM_STR);
-		$addGoal->bindParam (":endDate", $Goal->endDate, PDO::PARAM_STR);
-        $addGoal->bindParam (":goal_email", $Goal->creator, PDO::PARAM_STR);
-		$addGoal->bindParam (":goal_id", $last_id, PDO::PARAM_STR);
-		$addGoal->execute();
-      
-        $db = null;
-      
-        $dbObject2 = new Database;
-		$db2 = $dbObject2->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
-      
-        $goalCreator = $_SESSION['Email'];
-
-		$query = "INSERT INTO users_goals (goal_email, goal_id ) VALUES (:goal_email, :goal_id)";
-		
-		$last_id = $db2->lastInsertId();
-
-		$addGoal = $db2->prepare($query);
-        $addGoal->bindParam (":goal_email", $Goal->creator, PDO::PARAM_STR);
-		$addGoal->bindParam (":goal_id", $last_id, PDO::PARAM_STR);
-		$addGoal->execute();
-      
-        $db = null;
+				$db = null;	
+		}
+		catch( PDOException $Exception )
+		{
+			
+			die($Exception->getMessage());
+			
+		}
+    
+	}
       
         
 	}
-	
-	
-	
-}
 
 
 ?>

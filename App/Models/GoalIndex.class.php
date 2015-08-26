@@ -23,14 +23,31 @@ class GoalIndex
 
 	}
 	
-	public function print_all_goals()
+	public function get_current_user_goals()
 	{
 
-		$GoalIndex = new GoalIndex;
+		$dbObject = new Database;
+		$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
+		
+		if(!isset($_SESSION)):
+			session_start();
+		endif;
+		
+		$userEmail = $_SESSION["Email"];
 
-		$allGoals = $GoalIndex->get_all_goals();
+		$query = "SELECT * from goals WHERE creator='$userEmail' ORDER BY goal_id DESC";
 
-		while ( $goal = $allGoals->fetchObject() ):
+		$userGoals = $db->prepare($query);
+		$userGoals->execute();
+
+		return $userGoals;	
+
+	}
+	
+	public function print_goals($Goals)
+	{
+
+		while ( $goal = $Goals->fetchObject() ):
 
 			$goalTitle = $goal->title;
 			$goalDesc = $goal->description;
@@ -55,23 +72,6 @@ class GoalIndex
 		endwhile;
 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }
 

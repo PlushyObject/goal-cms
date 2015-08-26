@@ -14,13 +14,7 @@
 
 	$UserCtrl = new UserController;
 
-    $UserCtrl->login_user($User);
-
-		if(!isset( $_SESSION)):
-    	session_start();
-		endif;
-
-    $_SESSION['Email'] = $User->email;
+	$UserCtrl->login_user($User);
 
 	header('Location: /public_html/index?message=login_success');
 

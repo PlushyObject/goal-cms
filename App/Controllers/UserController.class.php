@@ -37,19 +37,20 @@ class UserController
         $dbObject = new Database;
         $db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
 
-        $query = "SELECT * FROM users WHERE email=:email";
+        $query = " SELECT * FROM users WHERE email='$User->email' ";
         $loginUser = $db->prepare($query);
-        $loginUser->bindParam (":email", $User->email, PDO::PARAM_STR);
         $loginUser->execute();
 
-        $userRow = $loginUser->fetch(PDO::FETCH_ASSOC);
+        $userRow = $loginUser->fetchAll(PDO::FETCH_ASSOC);
 
         if( $userRow->email = $User->email && $userRow->password = $User->password ):
 
           session_start();
-          session_regenerate_id(true); 
-
+          session_regenerate_id(true);
           $_SESSION['Email'] = $userRow->email;
+				
+				else:
+					header('Location: /public_html/login?message=login_error');
 
         endif;
         
@@ -58,7 +59,7 @@ class UserController
       }
       catch(PDOException $e)
       {
-        echo $e->getMessage();
+        die($e->getMessage());
 
       }
     }
