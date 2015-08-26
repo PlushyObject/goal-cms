@@ -13,24 +13,10 @@
 	$User = new User ($userEmail, $userPassword);
 
 	$UserCtrl = new UserController;
-
-<<<<<<< HEAD
-	$UserCtrl->login_user($User);
-=======
     if($UserCtrl->check_if_user_exists($User)):
 
       $UserCtrl->login_user($User);
-
-      if(!isset( $_SESSION)):
-        session_start();
-      endif;
->>>>>>> a557c59663d0ba4a1c05ade85ba2aede8c94d117
-
-      $_SESSION['Email'] = $User->email;
-
-      header('Location: /public_html/index?message=login_success');
-
-    else:
-      header('Location: /public_html/login?message=user_not_registered');
+		else:
+			header('Location: /public_html/login?message=login_error');
     endif;
 ?>

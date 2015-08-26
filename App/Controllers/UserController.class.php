@@ -10,11 +10,11 @@ class UserController
     {
       
         $dbObject = new Database;
-		$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
+				$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
       
         $query = "SELECT * FROM users WHERE email=:email";
         $checkUser = $db->prepare($query);
-		$checkUser->bindParam (":email", $User->email, PDO::PARAM_STR);
+				$checkUser->bindParam (":email", $User->email, PDO::PARAM_STR);
         $checkUser->execute();
         $allRows = $checkUser->fetchAll();
         $rowCount = count($allRows);
@@ -41,19 +41,18 @@ class UserController
         $loginUser = $db->prepare($query);
         $loginUser->execute();
 
-        $userRow = $loginUser->fetchAll(PDO::FETCH_ASSOC);
-
-        if( $userRow->email = $User->email && $userRow->password = $User->password ):
-
-          session_start();
-          session_regenerate_id(true);
-          $_SESSION['Email'] = $userRow->email;
+        $result = $loginUser->fetch(PDO::FETCH_ASSOC);
+				$userEmail = $result['email'];
+				$userPassword = $result['password'];
 				
+				if($userEmail == $User->email && $userPassword == $User->password):
+					session_start();
+					$_SESSION["Email"] = $userEmail;
+					header('Location: /public_html/index?message=login_success');
 				else:
 					header('Location: /public_html/login?message=login_error');
-
-        endif;
-        
+				endif;
+         
         $db = null;
 
       }
