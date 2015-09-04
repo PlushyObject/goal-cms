@@ -8,13 +8,20 @@
 		
 			
 			<?php 
-
-				$sessionEmail = $_SESSION['Email'];
 					
-
-				$GoalIndex = new GoalIndex;
 				$Goals = Goal::get_all_goals();
-				$GoalIndex->print_goals($Goals);
+
+				while ( $Goal = $Goals->fetchObject() ):
+				
+					if( $Goal->completed && $Goal->creator == $_SESSION['Email'] ):
+						$goal_classes = 'goal-complete';
+					else:
+						$goal_classes = 'goal-incomplete';
+					endif;
+
+					include '../App/Templates/goal_card.php';	
+
+				endwhile;
 
 			?>
 		</div>

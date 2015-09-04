@@ -105,19 +105,6 @@ class Goal
 			return $userGoals;	
 
 		}
-	
-		public static function print_goal_card($Goal)
-		{
-		
-			if( $Goal->completed && $Goal->creator == $_SESSION['Email'] ):
-				$goal_classes = 'goal-complete';
-			else:
-				$goal_classes = 'goal-incomplete';
-			endif;
-			
-			include '../App/Templates/goal_card.php';	
-			
-		}
 
 }
 

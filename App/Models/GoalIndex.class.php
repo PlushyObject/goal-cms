@@ -27,8 +27,6 @@ class GoalIndex
  			Goal::print_goal_card($Goal);
 		
 			endwhile;
-		
-		
 
 	}
 	

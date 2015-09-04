@@ -13,10 +13,10 @@ class RequestHandler
 
 		//Root
 		
-		if($request_uri[0] === '/public_html/goals'):
+		if($request_uri[0] === '/public_html/'):
 	
 			if($_SERVER['REQUEST_METHOD'] == 'GET'):
-					require '../App/Templates/newsfeed.php';
+					require '../App/Templates/goals.php';
 			endif;
 		
 			if($_SERVER['REQUEST_METHOD'] == 'POST'):
@@ -25,15 +25,17 @@ class RequestHandler
 		
 		endif;
 		
-		//Newsfeed
+		//Goals
 		
-		if($request_uri[0] === '/public_html/newsfeed'):
+		if($request_uri[0] === '/public_html/goals'):
 	
 			if($_SERVER['REQUEST_METHOD'] == 'GET'):
-					require '../App/Templates/newsfeed.php';
+					require '../App/Templates/goals.php';
 			endif;
 		
 		endif;
+		
+		//Register
 		
 		if($request_uri[0] === '/public_html/register'):
 	
@@ -42,6 +44,8 @@ class RequestHandler
 			endif;
 		
 		endif;
+		
+		//Login
 		
 		if($request_uri[0] === '/public_html/login'):
 	
