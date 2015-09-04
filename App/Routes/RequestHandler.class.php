@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+include_once ROOT_PATH.'/App/Models/Goal.class.php';
 
 class RequestHandler
 {
@@ -8,26 +10,66 @@ class RequestHandler
 		
 		// Grabs the URI and breaks it apart in case we have querystring stuff
 		$request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
+
+		//Root
+		
+		if($request_uri[0] === '/public_html/goals'):
+	
+			if($_SERVER['REQUEST_METHOD'] == 'GET'):
+					require '../App/Templates/newsfeed.php';
+			endif;
+		
+			if($_SERVER['REQUEST_METHOD'] == 'POST'):
+				GoalController::add_goal();
+			endif;
+		
+		endif;
+		
+		//Newsfeed
+		
+		if($request_uri[0] === '/public_html/newsfeed'):
+	
+			if($_SERVER['REQUEST_METHOD'] == 'GET'):
+					require '../App/Templates/newsfeed.php';
+			endif;
+		
+		endif;
+		
+		if($request_uri[0] === '/public_html/register'):
+	
+			if($_SERVER['REQUEST_METHOD'] == 'GET'):
+					require '../App/Templates/register.php';
+			endif;
+		
+		endif;
+		
+		if($request_uri[0] === '/public_html/login'):
+	
+			if($_SERVER['REQUEST_METHOD'] == 'GET'):
+					require '../App/Templates/login.php';
+			endif;
+		
+		endif;
 		
 		// Route it up!
 		switch ($request_uri[0]) {
 				// Home page
-				case '/':
+/*				case '/':
 					session_start();
 					if( isset($_SESSION) ):
 						require '../App/Templates/newsfeed.php';
 						break;
 					else:
 						require '../App/Templates/login.php';
-					endif;
+					endif;*/
 			
-				case '/public_html/newsfeed':
+/*				case '/public_html/newsfeed':
 					require '../App/Templates/newsfeed.php';
-					break;
+					break;*/
 			
-				case '/public_html/register':
+/*				case '/public_html/register':
 					require '../App/Templates/register.php';
-					break;
+					break;*/
 			
 				case '/public_html/login':
 					require '../App/Templates/login.php';
@@ -42,9 +84,9 @@ class RequestHandler
 					break;
 			
 				// Everything else
-				default:
+/*				default:
 					require '../App/Templates/newsfeed.php'; //Switch this to 404
-					break;
+					break*/
 			
 		}
 	}

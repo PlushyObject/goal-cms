@@ -21,6 +21,4 @@
       header('Location: /public_html/login?message=user_saved');
     endif;
 
-	
-
 ?>

@@ -1,6 +1,6 @@
 <div class="col-md-3">
 	<h2>Add Goal</h2>
-	<form method="post" action="../App/Controllers/Scripts/add_goal.php">
+	<form method="post">
 		<div class="form-group">
 			<label>Enter a title for your new goal:</label>
 			<input class="form-control" type="text" name="title" placeholder="Enter Title...">

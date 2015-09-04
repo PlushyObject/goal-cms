@@ -20,7 +20,7 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 	$message = 'Create a goal to get started on your wellness journey!';
 
 	if(isset($_GET['message'])):
-		if( $_GET['message'] == 'save_success'):
+		if( $_GET['message'] == 'goal_saved'):
 			$message = 'Awesome! You Created a Goal!';
 		elseif ($_GET['message'] == 'user_saved'):
 			$message = 'Awesome! You are Totally Registered!';
