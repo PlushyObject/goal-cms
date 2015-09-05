@@ -11,10 +11,8 @@
 
 	$User = new User ($userEmail, $userPassword);
 
-	$UserCtrl = new UserController;
-
-	if($UserCtrl->check_if_user_exists($User)):
-		$UserCtrl->login_user($User);		
+	if(Auth::check_if_user_exists($User)):
+		Auth::login_user($User);		
 	endif;
 
 ?>

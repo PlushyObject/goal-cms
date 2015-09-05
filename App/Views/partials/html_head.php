@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="/public_html/css/main.css">
         <link rel="stylesheet" href="/public_html/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <script src="/public_html/js/vendor/modernizr-2.8.3.min.js"></script>
+				<link rel="stylesheet" href="/public_html/style.css">
 			
 			<style>
 				
@@ -31,7 +32,7 @@
 			</style>
 
     </head>
-    <body>
+    <body id="hidden">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->

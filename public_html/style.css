@@ -1,0 +1,20 @@
+/*!
+Theme Name: Bootstrap Boilerplate v1.0
+Author: Jed Darrohn
+Author URI: http://darrohndesign.com
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+@import "https://fonts.googleapis.com/css?family=Open+Sans:400,700,300";
+/* line 5, sass/_partials/_fonts.scss */
+h2 {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif; }
+
+/* line 9, sass/_partials/_fonts.scss */
+h3, h4, p {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: 300; }

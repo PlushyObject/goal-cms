@@ -1,87 +1,26 @@
 <?php
 
-include_once ROOT_PATH.'/App/Models/Database.class.php';
+include_once ROOT_PATH.'/App/Models/Auth.class.php';
 include_once ROOT_PATH.'/App/Models/User.class.php';
 
 class UserController
-{
-	
-    public function check_if_user_exists($User)
-    {
-      
-        $dbObject = new Database;
-				$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
-      
-        $query = "SELECT * FROM users WHERE email=:email";
-        $checkUser = $db->prepare($query);
-				$checkUser->bindParam (":email", $User->email, PDO::PARAM_STR);
-        $checkUser->execute();
-        $allRows = $checkUser->fetchAll();
-        $rowCount = count($allRows);
-        
-        if($rowCount):
-          return true;
-        else:
-          header('Location: /public_html/login?message=user_does_not_exist');
-        endif;
-        
-        $db = null;
-    
-    }
-  
-  
-    public function login_user($User)
-    {
-      try 
-      {
-        $dbObject = new Database;
-        $db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
+{	
+		public static function add_user()
+		{
+			
+				$userEmail = $_POST['email'];
+				$userPassword = $_POST['password'];
 
-        $query = " SELECT * FROM users WHERE email='$User->email' ";
-        $loginUser = $db->prepare($query);
-        $loginUser->execute();
+				$User = new User ($userEmail, $userPassword);
 
-        $result = $loginUser->fetch(PDO::FETCH_ASSOC);
-				$userEmail = $result['email'];
-				$userPassword = $result['password'];
-				
-				if($userEmail == $User->email && $userPassword == $User->password):
-					session_start();
-					$_SESSION["Email"] = $userEmail;
-					header('Location: /public_html/index?message=login_success');
-				else:
-					header('Location: /public_html/login?message=login_error');
-				endif;
-         
-        $db = null;
-
-      }
-      catch(PDOException $e)
-      {
-        die($e->getMessage());
-
-      }
-    }
-  
-	public function save_user($User)
-	{
-
-		$dbObject = new Database;
-		$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
-
-		$query = "INSERT INTO users (email, password) VALUES ( :email, :password)";
-
-		$addUser = $db->prepare($query);
-		$addUser->bindParam (":email", $User->email, PDO::PARAM_STR);		
-		$addUser->bindParam (":password", $User->password, PDO::PARAM_STR);		
-		$addUser->execute();
-      
-        $db = null;
-
-	}
-	
-	
-	
+					if(Auth::check_if_user_exists($User)):
+						header('Location: /public_html/register?message=user_exists');
+					else:
+						User::save_user($User);
+						header('Location: /public_html/login?message=user_saved');
+					endif;
+			
+		}
 }
 
 

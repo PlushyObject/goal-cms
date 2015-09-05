@@ -3,8 +3,8 @@
 
 		<div class="col-md-6 col-md-offset-3">
 			<h2 style="color: lightblue" class="text-center"><?php echo $message; ?></h2>
-			<h2>Login to GoalCMS</h2>
-			<form method="post" action="../App/Controllers/Scripts/user_login.php">
+			<h3>Login to GoalCMS</h3>
+			<form method="post">
 				<div class="form-group">
 					<label>Enter Your Email:</label>
 					<input class="form-control" type="text" name="email" placeholder="Enter Username..." id="login-username" required>

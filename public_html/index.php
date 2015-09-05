@@ -3,7 +3,6 @@
 include_once '../config.php';
 include_once ROOT_PATH.'/App/Models/Database.class.php';
 include_once ROOT_PATH.'/App/Models/Goal.class.php';
-include_once ROOT_PATH.'/App/Models/GoalIndex.class.php';
 include_once ROOT_PATH.'/App/Models/User.class.php';
 include_once ROOT_PATH.'/App/Controllers/GoalController.class.php';
 include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
@@ -14,8 +13,8 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 		$sessionEmail = $_SESSION['Email'];
 	endif;
 
-	include '../App/Templates/partials/html_head.php';
-	include '../App/Templates/partials/navbar.php';
+	include '../App/Views/partials/html_head.php';
+	include '../App/Views/partials/navbar.php';
 
 	$message = 'Create a goal to get started on your wellness journey!';
 
@@ -35,6 +34,6 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 
 	$rh->display_view($message);
 
-	include '../App/Templates/partials/footer.php' 
+	include '../App/Views/partials/footer.php' 
 
 ?>

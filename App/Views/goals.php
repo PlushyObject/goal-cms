@@ -19,7 +19,7 @@
 						$goal_classes = 'goal-incomplete';
 					endif;
 
-					include '../App/Templates/goal_card.php';	
+					include '../App/Views/goal_card.php';	
 
 				endwhile;
 

@@ -4,7 +4,7 @@
 		<div class="col-md-6 col-md-offset-3">
 			<h2 style="color: lightblue" class="text-center"><?php echo $message; ?></h2>
 			<h2>Register Your Account</h2>
-			<form method="post" action="../App/Controllers/Scripts/add_user.php">
+			<form method="post">
 				<div class="form-group">
 					<label>Create Your Email:</label>
 					<input class="form-control" type="email" name="email" placeholder="Enter Email..." id="new-user-email" required>
