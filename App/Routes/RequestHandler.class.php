@@ -36,6 +36,20 @@ class RequestHandler
 				require '../App/Views/goals.php';
 			endif;
 		
+			if($_SERVER['REQUEST_METHOD'] == 'POST'):
+				GoalController::add_goal();
+			endif;
+		
+		endif;
+		
+		if($request_uri[0] === '/public_html/goal'):
+	
+			if($_SERVER['REQUEST_METHOD'] == 'GET'):
+				
+				require '../App/Views/goal.php';
+		
+			endif;
+		
 		endif;
 		
 		//Register

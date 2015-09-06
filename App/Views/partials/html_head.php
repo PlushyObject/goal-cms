@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="/public_html/css/normalize.css">
         <link rel="stylesheet" href="/public_html/css/main.css">
         <link rel="stylesheet" href="/public_html/bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/public_html/bower_components/font-awesome/css/font-awesome.min.css">
         <script src="/public_html/js/vendor/modernizr-2.8.3.min.js"></script>
 				<link rel="stylesheet" href="/public_html/style.css">
 			
@@ -21,11 +22,6 @@
 				.form-control, .btn {
 					
 					margin-bottom: 15px;
-					
-				}
-				
-				.goal-complete{
-					border: 5px solid green;
 					
 				}
 			

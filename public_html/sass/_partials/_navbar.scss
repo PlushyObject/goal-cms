@@ -1,0 +1,21 @@
+#goal-navbar{
+	background-color: #F4CD0A;
+	border-radius: 0px;
+	border: none;
+	
+	a{
+		color: #fff;	
+	}
+	
+	#navbar-user-dropdown{
+		background-color: #F15E27;
+		
+	}
+	
+	.navbar-nav>.active>a,
+	.navbar-nav>.active>a:focus,
+	.navbar-nav>.active>a:hover{
+			background-color: #F3A718;
+		}
+	
+}

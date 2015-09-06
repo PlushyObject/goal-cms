@@ -15,6 +15,68 @@ h2 {
   font-family: "Open Sans", Helvetica, Arial, sans-serif; }
 
 /* line 9, sass/_partials/_fonts.scss */
-h3, h4, p {
+body, h3, h4, p {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-weight: 300; }
+  font-weight: 300;
+  color: #555555 !important; }
+
+/* line 3, sass/_partials/_globals.scss */
+body {
+  background-color: #F4F5F3; }
+
+/* line 7, sass/_partials/_globals.scss */
+#hidden {
+  opacity: 0;
+  transition: opacity 1s; }
+
+/* line 12, sass/_partials/_globals.scss */
+.well {
+  border: none;
+  border-radius: 0px;
+  background-color: #DDD;
+  color: whitesmoke; }
+  /* line 18, sass/_partials/_globals.scss */
+  .well a {
+    color: white; }
+    /* line 20, sass/_partials/_globals.scss */
+    .well a:hover {
+      text-decoration: none;
+      color: #449DD9; }
+
+/* line 28, sass/_partials/_globals.scss */
+.form-control {
+  border-radius: 0px; }
+
+/* line 32, sass/_partials/_globals.scss */
+.btn {
+  border-radius: 0px; }
+
+/* line 36, sass/_partials/_globals.scss */
+.star {
+  color: whitesmoke;
+  padding: 6px;
+  font-size: 18px;
+  background-color: #DFE917; }
+
+/* line 43, sass/_partials/_globals.scss */
+.completion-date {
+  background-color: #40B25E;
+  padding: 5px;
+  margin: 0px; }
+
+/* line 1, sass/_partials/_navbar.scss */
+#goal-navbar {
+  background-color: #F4CD0A;
+  border-radius: 0px;
+  border: none; }
+  /* line 6, sass/_partials/_navbar.scss */
+  #goal-navbar a {
+    color: #fff; }
+  /* line 10, sass/_partials/_navbar.scss */
+  #goal-navbar #navbar-user-dropdown {
+    background-color: #F15E27; }
+  /* line 15, sass/_partials/_navbar.scss */
+  #goal-navbar .navbar-nav > .active > a,
+  #goal-navbar .navbar-nav > .active > a:focus,
+  #goal-navbar .navbar-nav > .active > a:hover {
+    background-color: #F3A718; }

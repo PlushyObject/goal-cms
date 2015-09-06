@@ -81,7 +81,7 @@ class Goal
 			$Goal = $db->prepare($query);
 			$Goal->execute();
 
-			return $Goal;	
+			return $Goal->fetchObject();	
 
 		}
 	

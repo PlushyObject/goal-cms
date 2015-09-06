@@ -18,7 +18,7 @@ class GoalController
 		
 		Goal::save_goal($Goal);
 		
-		header('Location: /public_html/newsfeed?message=goal_saved');
+		header('Location: /public_html/goals?message=goal_saved');
 		
 	}
 }

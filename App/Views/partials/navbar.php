@@ -8,7 +8,7 @@
 	$current_user = User::get_current_user();
 ?>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" id="goal-navbar">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -29,7 +29,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
 				<li><a href="#">Link</a></li>			
-				<li class="dropdown">
+				<li class="dropdown" id="navbar-user-dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<?php echo $current_user ?> <span class="caret"></span>
 					</a>

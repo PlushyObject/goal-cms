@@ -1,0 +1,47 @@
+$red: #FF191B;
+
+body{
+	background-color: #F4F5F3;
+}
+
+#hidden{
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+.well{
+	border: none;
+	border-radius: 0px;
+	background-color: #DDD;
+	color: whitesmoke;
+	
+	a{
+		color: white;
+		&:hover{
+			text-decoration: none;
+			color: #449DD9;
+			
+		}
+	}
+}
+
+.form-control{
+	border-radius: 0px;
+}
+
+.btn{
+	border-radius: 0px;
+}
+
+.star{
+	color: whitesmoke;
+	padding: 6px;
+	font-size: 18px;
+	background-color: #DFE917;
+}
+
+.completion-date{
+	background-color: #40B25E;
+	padding: 5px;
+	margin: 0px;
+}
