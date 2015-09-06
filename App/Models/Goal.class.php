@@ -14,6 +14,7 @@ class Goal
 				$this->startDate = $startDate;	
 				$this->endDate = $endDate;
 				$this->completed = false;
+				$this->completedDate= '';
 
 		}
 	
@@ -43,6 +44,40 @@ class Goal
 					$saveGoalToUser->bindParam (":goal_email", $Goal->creator, PDO::PARAM_STR);
 					$saveGoalToUser->bindParam (":goal_id", $last_id, PDO::PARAM_STR);
 					$saveGoalToUser->execute();
+
+					$db = null;	
+			}
+			catch( PDOException $Exception )
+			{
+
+				die($Exception->getMessage());
+
+			}
+    
+		}
+	
+				public static function update_goal($Goal)
+		{
+			try
+			{
+					$dbObject = new Database;
+					$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
+
+					$query = "UPDATE goals SET title=:title, description=:description, creator=:creator, startDate=:startDate, endDate=:endDate, completed=:completed, completedDate=:completedDate, updatedOn=:updatedOn WHERE goal_id=:goal_id";
+				
+					$current_time = time();
+
+					$addGoal = $db->prepare($query);
+					$addGoal->bindParam (":goal_id", $Goal->goal_id, PDO::PARAM_STR);
+					$addGoal->bindParam (":title", $Goal->title, PDO::PARAM_STR);
+					$addGoal->bindParam (":description", $Goal->description, PDO::PARAM_STR);
+					$addGoal->bindParam (":creator", $Goal->creator, PDO::PARAM_STR);
+					$addGoal->bindParam (":startDate", $Goal->startDate, PDO::PARAM_STR);
+					$addGoal->bindParam (":endDate", $Goal->endDate, PDO::PARAM_STR);
+					$addGoal->bindParam (":completed", $Goal->completed, PDO::PARAM_BOOL);
+					$addGoal->bindParam (":completedDate", $Goal->completedDate, PDO::PARAM_STR);
+					$addGoal->bindParam (":updatedOn", $current_time, PDO::PARAM_STR);
+					$addGoal->execute();
 
 					$db = null;	
 			}

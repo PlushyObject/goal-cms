@@ -45,9 +45,11 @@ class RequestHandler
 		if($request_uri[0] === '/public_html/goal'):
 	
 			if($_SERVER['REQUEST_METHOD'] == 'GET'):
-				
 				require '../App/Views/goal.php';
-		
+			endif;
+			
+			if($_SERVER['REQUEST_METHOD'] == 'POST'):
+				GoalController::update_goal_by_id();
 			endif;
 		
 		endif;

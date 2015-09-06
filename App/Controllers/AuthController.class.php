@@ -21,9 +21,14 @@ class AuthController
 				$userPassword = $result['password'];
 				
 				if($userEmail == $User->email && $userPassword == $User->password):
-					session_start();
+				
+					if (session_status() !== PHP_SESSION_ACTIVE):
+						session_start();
+					endif;
+				
 					$_SESSION["Email"] = $userEmail;
 					header('Location: /public_html/goals?message=login_success');
+				
 				else:
 					header('Location: /public_html/login?message=login_error');
 				endif;
