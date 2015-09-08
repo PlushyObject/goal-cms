@@ -12,7 +12,7 @@
 	$User = new User ($userEmail, $userPassword);
 
 	if(Auth::check_if_user_exists($User)):
-		Auth::login_user($User);		
+		Auth::login_user($User);
 	endif;
 
 ?>

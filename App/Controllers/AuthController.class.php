@@ -3,13 +3,13 @@
 class AuthController
 {
 	
-	public static function login_user($User)
+	public static function login_user()
 	{
 		
-				$userEmail = $_POST['email'];
-				$userPassword = $_POST['password'];
+      $userEmail = $_POST['email'];
+      $userPassword = $_POST['password'];
 
-				$User = new User ($userEmail, $userPassword);
+      $User = new User ($userEmail, $userPassword);
 		
 			try 
       {
@@ -47,11 +47,13 @@ class AuthController
 	public static function logout_user()
 		{
 			
-			  session_start();
+			  if (session_status() !== PHP_SESSION_ACTIVE):
+                session_start();
+              endif;
   
-				session_destroy();
+              session_destroy();
 
-				header('Location: /public_html/login');
+              header('Location: /public_html/login');
 			
 		}
 	

@@ -23,8 +23,6 @@
 			<?php if($daysleft > 0) : ?>
 					<p><i class="fa fa-clock-o"></i> <b>Days Left: <?php echo $daysleft; ?></b></p>
 			<?php endif; ?>
-			
-			<p><?php echo $Goal->goal_id; ?></p>
 		</div>
 	</div>
 </div>
