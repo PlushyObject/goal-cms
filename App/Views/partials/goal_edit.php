@@ -6,10 +6,10 @@
 		</div>
 		<div class="form-group">
 			<label>Goal Description</label>
-			<textarea class="form-control" rows="5" name="description"><?php echo $Goal->description ?></textarea>
+			<textarea class="form-control" rows="8" name="description"><?php echo $Goal->description ?></textarea>
 		</div>
 		<div class="form-group">
-			<label>Complete?</label>
+			<label>Complete?</label> 
 			<?php 
 				if($Goal->completed == 1 ): 
 					$goalCompleteCheck = 'checked';
@@ -17,7 +17,7 @@
 					$goalCompleteCheck = '';
 				endif;
 			?>
-			<input type="checkbox" name="completed" name="completed" <?php echo $goalCompleteCheck ?>>
+			<input type="checkbox" name="completed" <?php echo $goalCompleteCheck ?>>
 		</div>
 		<div class="form-group">
 			<label>Start Date</label>

@@ -31,19 +31,20 @@ class GoalController
 		$userEmail = $_SESSION['Email'];
 		$userStart = $_POST['startDate'];
 		$userEnd = $_POST['endDate'];
-		$userCompleted = $_POST['completed'];
-
+        $userCompleted = $_POST['completed'];
 
 		$Goal = new Goal ($userTitle, $userDescription, $userEmail, $userStart, $userEnd);
 		$Goal->goal_id = $_GET['goal_id'];
 		
 		if($userCompleted):
 			$Goal->completed = 1;
+        else:
+            $Goal->completed = 0;
 		endif;
 		
 		Goal::update_goal($Goal);
 		
-		header('Location: /public_html/goals?message=goal_updated');
+		header("Location: /public_html/goal?goal_id=$Goal->goal_id&message=goal_updated");
 		
 		
 	}

@@ -56,14 +56,14 @@ class Goal
     
 		}
 	
-				public static function update_goal($Goal)
+        public static function update_goal($Goal)
 		{
 			try
 			{
 					$dbObject = new Database;
 					$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
 
-					$query = "UPDATE goals SET title=:title, description=:description, creator=:creator, startDate=:startDate, endDate=:endDate, completed=:completed, completedDate=:completedDate, updatedOn=:updatedOn WHERE goal_id=:goal_id";
+					$query = "UPDATE goals SET title=:title, description=:description, creator=:creator, startDate=:startDate, endDate=:endDate, completed=:completed, completedDate=:completedDate, updatedOn=now() WHERE goal_id=:goal_id";
 				
 					$current_time = time();
 
@@ -76,7 +76,6 @@ class Goal
 					$addGoal->bindParam (":endDate", $Goal->endDate, PDO::PARAM_STR);
 					$addGoal->bindParam (":completed", $Goal->completed, PDO::PARAM_BOOL);
 					$addGoal->bindParam (":completedDate", $Goal->completedDate, PDO::PARAM_STR);
-					$addGoal->bindParam (":updatedOn", $current_time, PDO::PARAM_STR);
 					$addGoal->execute();
 
 					$db = null;	

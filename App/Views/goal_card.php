@@ -1,28 +1,39 @@
-
-
-<div class="well <?php echo $goal_classes ?>" style="margin-top: 15px;">
-	<div class="row">
-		<div class="col-md-12" >
-			<a href="/public_html/goal?goal_id=<?php echo $Goal->goal_id; ?>">
-				<h2 style="margin: 5px 0px;"><?php echo $Goal->title; ?></h2>
-			</a>
-			<?php if($Goal->completed): ?>
-					<span class="completion-date"><i class="fa fa-star"></i> Completed on July 4, 1776</span>
-			<?php endif; ?>
-			
-			<h4 style="margin: 5px 0px;"><?php echo $Goal->creator; ?></h4>
-			<hr>
-			<p><?php echo $Goal->description; ?></p>
-			<?php
+            <?php
 				$endTime =  strtotime($Goal->endDate);
 				$currentTime = time();
 				$timeleft = $endTime-$currentTime;
 				$daysleft = round((($timeleft/24)/60)/60); 
 			?>
+
+<div class="goal-card <?php echo $goal_classes ?>">
+	<div class="row goal-card-header-row">
+		<div class="col-md-12" >
+              <div class="goal-card-header">
+                <a href="/public_html/goal?goal_id=<?php echo $Goal->goal_id; ?>">
+                  <h2 class="goal-card-title"><?php echo $Goal->title; ?></h2>
+                </a>
+                <h5 class="color-white goal-card-info">
+                  <i class="fa fa-user"></i> <?php echo $Goal->creator; ?> 
+                  <?php if ($daysleft > 0):
+                    echo "| <i class='fa fa-clock-o'></i> ";
+                    echo "Days Left: $daysleft";
+                   endif; 
+                  ?>
+                </h5>
+              </div>
+        </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
 			
-			<?php if($daysleft > 0) : ?>
-					<p><i class="fa fa-clock-o"></i> <b>Days Left: <?php echo $daysleft; ?></b></p>
+			<?php if($Goal->completed): ?>
+					<span class="completion-date"><i class="fa fa-star"></i> Completed on July 4, 1776</span>
 			<?php endif; ?>
+			
+			<hr>
+			<p><?php echo $Goal->description; ?></p>
+
 		</div>
 	</div>
 </div>
+

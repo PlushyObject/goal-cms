@@ -1,5 +1,12 @@
 $red: #FF191B;
 
+a{
+  
+  &:hover{
+    text-decoration: none;
+  }
+}
+
 body{
 	background-color: #F4F5F3;
 }
@@ -7,22 +14,6 @@ body{
 #hidden{
 	opacity: 0;
 	transition: opacity 1s;
-}
-
-.well{
-	border: none;
-	border-radius: 0px;
-	background-color: #DDD;
-	color: whitesmoke;
-	
-	a{
-		color: white;
-		&:hover{
-			text-decoration: none;
-			color: #449DD9;
-			
-		}
-	}
 }
 
 .form-control{
@@ -44,4 +35,8 @@ body{
 	background-color: #40B25E;
 	padding: 5px;
 	margin: 0px;
+}
+
+.color-white{
+  color: white;
 }
