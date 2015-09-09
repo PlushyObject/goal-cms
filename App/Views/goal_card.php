@@ -27,7 +27,7 @@
     <div class="col-md-12">
 			
 			<?php if($Goal->completed): ?>
-					<span class="completion-date"><i class="fa fa-star"></i> Completed on July 4, 1776</span>
+					<div class="completion-date"><i class="fa fa-trophy"></i> Completed on July 4, 1776</div>
 			<?php endif; ?>
 			
 			<hr>
@@ -36,4 +36,5 @@
 		</div>
 	</div>
 </div>
-
+  
+  

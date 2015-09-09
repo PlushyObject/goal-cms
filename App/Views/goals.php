@@ -22,8 +22,32 @@
 					include '../App/Views/goal_card.php';	
 
 				endwhile;
-
+                
+  
 			?>
+          
+          
+          
 		</div>
+      <div class="col-md-3">
+        
+            <?php 
+
+                $TotalGoals = $Goals->rowCount();
+                $CompletedGoals = [];
+                
+                while ( $Goal = $Goals->fetchObject() ):
+				
+					if( $Goal->completed):
+						array_push( $CompletedGoals, $Goal->goal_id );
+					endif;
+
+				endwhile;
+                
+
+            ?>
+        
+            <h1><?php echo count($CompletedGoals)?></h1>
+      </div>
 	</div>
 </div>

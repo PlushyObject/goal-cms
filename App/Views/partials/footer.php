@@ -1,5 +1,6 @@
         <script src="/public_html/bower_components/jquery/dist/jquery.min.js"></script>
         <script src="/public_html/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="/public_html/bower_components/Chart.js/Chart.js"></script>
         <script src="/public_html/js/plugins.js"></script>
         <script src="/public_html/js/main.js"></script>
         <script src="/public_html/js/register-form.js"></script>
@@ -13,6 +14,33 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X','auto');ga('send','pageview');
         </script>
+
+        	<script>
+
+              var doughnutData = [
+                      {
+                          value: 4,
+                          color:"#F7464A",
+                          highlight: "#FF5A5E",
+                          label: "Red"
+                      },
+                      {
+                          value: 1,
+                          color: "#46BFBD",
+                          highlight: "#5AD3D1",
+                          label: "Green"
+                      }
+
+                  ];
+
+                  window.onload = function(){
+                      var ctx = document.getElementById("chart-area").getContext("2d");
+                      window.myDoughnut = new Chart(ctx).Pie(doughnutData, {responsive : true});
+                  };
+
+
+
+          </script>
 
 
     </body>

@@ -31,12 +31,15 @@ class GoalController
 		$userEmail = $_SESSION['Email'];
 		$userStart = $_POST['startDate'];
 		$userEnd = $_POST['endDate'];
-        $userCompleted = $_POST['completed'];
+      
+        if(isset($_POST['completed'])):
+          $userCompleted = $_POST['completed'];
+        endif;
 
 		$Goal = new Goal ($userTitle, $userDescription, $userEmail, $userStart, $userEnd);
 		$Goal->goal_id = $_GET['goal_id'];
 		
-		if($userCompleted):
+		if(isset($_POST['completed'])):
 			$Goal->completed = 1;
         else:
             $Goal->completed = 0;

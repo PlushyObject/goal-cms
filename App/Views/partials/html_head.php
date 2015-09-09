@@ -15,17 +15,7 @@
         <link rel="stylesheet" href="/public_html/bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="/public_html/bower_components/font-awesome/css/font-awesome.min.css">
         <script src="/public_html/js/vendor/modernizr-2.8.3.min.js"></script>
-				<link rel="stylesheet" href="/public_html/style.css">
-			
-			<style>
-				
-				.form-control, .btn {
-					
-					margin-bottom: 15px;
-					
-				}
-			
-			</style>
+        <link rel="stylesheet" href="/public_html/style.css">
 
     </head>
     <body id="hidden">

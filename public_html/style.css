@@ -25,36 +25,44 @@ a:hover {
   text-decoration: none; }
 
 /* line 10, sass/_partials/_globals.scss */
+p {
+  font-size: 16px; }
+
+/* line 15, sass/_partials/_globals.scss */
+hr {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
+/* line 20, sass/_partials/_globals.scss */
 body {
   background-color: #F4F5F3; }
 
-/* line 14, sass/_partials/_globals.scss */
+/* line 24, sass/_partials/_globals.scss */
 #hidden {
   opacity: 0;
   transition: opacity 1s; }
 
-/* line 19, sass/_partials/_globals.scss */
+/* line 29, sass/_partials/_globals.scss */
 .form-control {
-  border-radius: 0px; }
+  border-radius: 0px;
+  padding: 20px 12px; }
 
-/* line 23, sass/_partials/_globals.scss */
+/* line 34, sass/_partials/_globals.scss */
+textarea.form-control {
+  padding: 12px; }
+
+/* line 38, sass/_partials/_globals.scss */
 .btn {
   border-radius: 0px; }
 
-/* line 27, sass/_partials/_globals.scss */
+/* line 42, sass/_partials/_globals.scss */
 .star {
   color: whitesmoke;
   padding: 6px;
   font-size: 18px;
   background-color: #DFE917; }
 
-/* line 34, sass/_partials/_globals.scss */
-.completion-date {
-  background-color: #40B25E;
-  padding: 5px;
-  margin: 0px; }
-
-/* line 40, sass/_partials/_globals.scss */
+/* line 49, sass/_partials/_globals.scss */
 .color-white {
   color: white; }
 
@@ -79,26 +87,49 @@ body {
 .goal-card {
   background-color: #FFFFFF;
   padding: 0px 15px 15px;
-  margin-top: 30px; }
-  /* line 6, sass/_partials/_goal-card.scss */
+  margin-top: 30px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px; }
+  /* line 8, sass/_partials/_goal-card.scss */
+  .goal-card .completion-date {
+    background-color: #40B25E;
+    padding: 8px 16px;
+    margin: 10px;
+    display: inline-block;
+    color: whitesmoke; }
+    /* line 15, sass/_partials/_goal-card.scss */
+    .goal-card .completion-date i {
+      color: yellow; }
+  /* line 20, sass/_partials/_goal-card.scss */
   .goal-card .goal-card-header-row {
     margin-left: -30px;
     margin-right: -30px; }
-  /* line 11, sass/_partials/_goal-card.scss */
+  /* line 25, sass/_partials/_goal-card.scss */
   .goal-card .goal-card-header {
+    background: -webkit-linear-gradient(60deg, #5bc0de, #449DD9);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(60deg, #5bc0de, #449DD9);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(60deg, #5bc0de, #449DD9);
+    /* For Firefox 3.6 to 15 */
+    background: linear-gradient(60deg, #5bc0de, #449dd9);
+    /* Standard syntax */
     width: 100%;
     min-height: 40px;
     background-color: #449DD9;
-    padding: 15px; }
-    /* line 17, sass/_partials/_goal-card.scss */
+    padding: 15px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px; }
+    /* line 37, sass/_partials/_goal-card.scss */
     .goal-card .goal-card-header a > .goal-card-title {
       margin: 0px;
       color: #FFFFFF;
-      font-weight: 300; }
-      /* line 22, sass/_partials/_goal-card.scss */
+      font-weight: 300;
+      line-height: 28px; }
+      /* line 43, sass/_partials/_goal-card.scss */
       .goal-card .goal-card-header a > .goal-card-title:hover {
         color: whitesmoke;
         text-decoration: none; }
-    /* line 28, sass/_partials/_goal-card.scss */
+    /* line 49, sass/_partials/_goal-card.scss */
     .goal-card .goal-card-header .goal-card-info {
       margin: 10px 0px 0px; }

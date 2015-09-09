@@ -19,5 +19,4 @@
 		</div>
 			<button class="btn btn-info btn-block" type="submit">Submit</button>
 	</form>
-	<a href="register" class="btn btn-info">Register</a>
 </div>

@@ -7,6 +7,16 @@ a{
   }
 }
 
+p{
+  font-size: 16px;
+  
+}
+
+hr{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 body{
 	background-color: #F4F5F3;
 }
@@ -18,6 +28,11 @@ body{
 
 .form-control{
 	border-radius: 0px;
+    padding: 20px 12px;
+}
+
+textarea.form-control{
+  padding: 12px;
 }
 
 .btn{
@@ -29,12 +44,6 @@ body{
 	padding: 6px;
 	font-size: 18px;
 	background-color: #DFE917;
-}
-
-.completion-date{
-	background-color: #40B25E;
-	padding: 5px;
-	margin: 0px;
 }
 
 .color-white{

@@ -2,6 +2,20 @@
   background-color: #FFFFFF;
   padding: 0px 15px 15px;
   margin-top: 30px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  
+  .completion-date{
+    background-color: #40B25E;
+    padding: 8px 16px;
+    margin: 10px;
+    display: inline-block;
+    color: whitesmoke;
+    
+    i{
+      color: yellow;
+    }
+}
  
   .goal-card-header-row{
     margin-left: -30px;
@@ -9,15 +23,22 @@
   }
   
   .goal-card-header{
+    background: -webkit-linear-gradient(60deg, #5bc0de, #449DD9); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(60deg, #5bc0de, #449DD9); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(60deg, #5bc0de, #449DD9); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(60deg, #5bc0de, #449DD9); /* Standard syntax */
     width: 100%;
     min-height: 40px;
     background-color: #449DD9;
     padding: 15px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     
     a > .goal-card-title{
       margin: 0px;
       color: #FFFFFF;
       font-weight: 300;
+      line-height: 28px;
       
       &:hover{
         color: whitesmoke;
