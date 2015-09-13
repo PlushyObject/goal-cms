@@ -13,10 +13,18 @@ include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 		$sessionEmail = $_SESSION['Email'];
 	endif;
 
+	if(isset($_SESSION['FirstName'])):
+		$sessionFirstName = $_SESSION['FirstName'];
+	endif;
+
+	if(isset($_SESSION['LastName'])):
+		$sessionLastName = $_SESSION['LastName'];
+	endif;
+
 	include '../App/Views/partials/html_head.php';
 	include '../App/Views/partials/navbar.php';
 
-	$message = 'Create a goal to get started on your wellness journey!';
+	$message = "Welcome to TrophyCase! Create a goal to get started on your wellness journey!";
 
 	if(isset($_GET['message'])):
 		if( $_GET['message'] == 'goal_saved'):

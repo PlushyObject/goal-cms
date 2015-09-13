@@ -5,7 +5,8 @@
 		$login_link_text = 'Sign In';
 	endif;
 
-	$current_user = User::get_current_user();
+	$current_user_first_name = User::get_current_user_first_name();
+  $current_user_last_name = User::get_current_user_last_name();
 ?>
 
 <nav class="navbar navbar-default" id="goal-navbar">
@@ -31,7 +32,7 @@
 				<li><a href="#">Link</a></li>			
 				<li class="dropdown" id="navbar-user-dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-						<?php echo $current_user ?> <span class="caret"></span>
+						<?php echo $current_user_first_name.' '.$current_user_last_name[0].'.' ?> <span class="caret"></span>
 					</a>
           <ul class="dropdown-menu">
             <li><a href="/public_html/logout"><?php echo $login_link_text ?></a></li>

@@ -1,5 +1,9 @@
 <?php 
 
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+
 class AuthController
 {
 	
@@ -8,25 +12,28 @@ class AuthController
 		
       $userEmail = $_POST['email'];
       $userPassword = $_POST['password'];
-
-      $User = new User ($userEmail, $userPassword);
 		
-			try 
+	try 
       {
 				
-        $loginUser = User::get_user_by_email($User->email);
+        $loginUser = User::get_user_by_email($userEmail);
 
         $result = $loginUser->fetch(PDO::FETCH_ASSOC);
-				$userEmail = $result['email'];
-				$userPassword = $result['password'];
+				$dbEmail = $result['email'];
+				$dbPassword = $result['password'];
+				$dbFirstName = $result['firstName'];
+				$dbLastName = $result ['lastName'];
 				
-				if($userEmail == $User->email && $userPassword == $User->password):
+				if($dbEmail == $userEmail && $dbPassword == $userPassword):
 				
 					if (session_status() !== PHP_SESSION_ACTIVE):
 						session_start();
 					endif;
 				
-					$_SESSION["Email"] = $userEmail;
+					$_SESSION["Email"] = $dbEmail;
+					$_SESSION["FirstName"] = $dbFirstName;
+					$_SESSION["LastName"] = $dbLastName;
+
 					header('Location: /public_html/goals?message=login_success');
 				
 				else:

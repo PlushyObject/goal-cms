@@ -10,8 +10,12 @@ class UserController
 			
 				$userEmail = $_POST['email'];
 				$userPassword = $_POST['password'];
+				$userFirstName = $_POST['firstName'];
+				$userLastName = $_POST['lastName'];
 
-				$User = new User ($userEmail, $userPassword);
+				$User = new User ($userEmail, $userPassword, $userFirstName, $userLastName);
+
+				print_r($User);
 
 					if(Auth::check_if_user_exists($User)):
 						header('Location: /public_html/register?message=user_exists');

@@ -6,12 +6,20 @@
 			<h2>Register Your Account</h2>
 			<form method="post">
 				<div class="form-group">
-					<label>Create Your Email:</label>
+					<label>Enter Your Email:</label>
 					<input class="form-control" type="email" name="email" placeholder="Enter Email..." id="new-user-email" required>
 					<span id="new-email-info"></span>
 				</div>
+				<div class="form-group" id="form-group-firstName">
+					<label>Enter Your First Name:</label>
+					<input class="form-control" type="text" name="firstName" placeholder="Enter First Name..." id="new-user-firstName" required>
+				</div>
+				<div class="form-group" id="form-group-lastName">
+					<label>Enter Your Last Name:</label>
+					<input class="form-control" type="text" name="lastName" placeholder="Enter Last Name..." id="new-user-lastName" required>
+				</div>
 				<div class="form-group">
-					<label>Create Your Password:</label>
+					<label>Enter Your Password:</label>
 					<input class="form-control" type="password" name="password" placeholder="Enter Password..." id="new-user-password" required>
 					<span id="new-password-info"></span>
 				</div>

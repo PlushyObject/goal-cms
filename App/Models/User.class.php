@@ -6,15 +6,17 @@
 class User
 {
 	
-	public function __construct($email, $password)
+	public function __construct($email, $password, $firstName, $lastName)
 	{
 		
 		$this->email = $email;
 		$this->password = $password;
+		$this->firstName = $firstName;
+		$this->lastName = $lastName;
 		
 	}
 	
-	public static function get_current_user()
+	public static function get_current_user_email()
 	{
 		
 		if(isset($_SESSION['Email'])):
@@ -22,6 +24,26 @@ class User
 				return $currentUser;
 		endif;
 		
+	}
+
+	public static function get_current_user_first_name()
+	{
+
+		if(isset($_SESSION['FirstName'])):
+				$currentUserFirstName = $_SESSION['FirstName'];
+				return $currentUserFirstName;
+		endif;
+
+	}
+
+	public static function get_current_user_last_name()
+	{
+
+		if(isset($_SESSION['LastName'])):
+				$currentUserLastName = $_SESSION['LastName'];
+				return $currentUserLastName;
+		endif;
+
 	}
 	
 	public static function get_user_by_email($email)
@@ -45,11 +67,13 @@ class User
 		$dbObject = new Database;
 		$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
 
-		$query = "INSERT INTO users (email, password) VALUES ( :email, :password)";
+		$query = "INSERT INTO users (email, password, firstName, lastName) VALUES ( :email, :password, :firstName, :lastName)";
 
 		$addUser = $db->prepare($query);
 		$addUser->bindParam (":email", $User->email, PDO::PARAM_STR);		
-		$addUser->bindParam (":password", $User->password, PDO::PARAM_STR);		
+		$addUser->bindParam (":password", $User->password, PDO::PARAM_STR);
+		$addUser->bindParam (":firstName", $User->firstName, PDO::PARAM_STR);	
+		$addUser->bindParam (":lastName", $User->lastName, PDO::PARAM_STR);			
 		$addUser->execute();
       
         $db = null;

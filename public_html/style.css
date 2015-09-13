@@ -133,3 +133,10 @@ textarea.form-control {
     /* line 49, sass/_partials/_goal-card.scss */
     .goal-card .goal-card-header .goal-card-info {
       margin: 10px 0px 0px; }
+
+@media (min-width: 1200px) {
+  /* line 3, sass/_partials/_register.scss */
+  #form-group-firstName,
+  #form-group-lastName {
+    width: 48%;
+    display: inline-block; } }
