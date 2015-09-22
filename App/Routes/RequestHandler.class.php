@@ -41,6 +41,14 @@ class RequestHandler
 			endif;
 		
 		endif;
+      
+        if($request_uri[0] === '/public_html/goals/json'):
+	
+			if($_SERVER['REQUEST_METHOD'] == 'GET'):
+				header('Location: /public_html/json_goals.php');
+			endif;
+		
+		endif;
 		
 		if($request_uri[0] === '/public_html/goal'):
 	

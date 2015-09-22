@@ -139,6 +139,28 @@ class Goal
 			return $userGoals;	
 
 		}
+  
+        public static function echo_all_goals_json()
+        {
+          
+          $dbObject = new Database;
+			$db = $dbObject->connect_to_database(DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS);
+
+			if(!isset($_SESSION)):
+				session_start();
+			endif;
+
+			$query = "SELECT * from goals";
+            $GoalsDB = $db->prepare($query);
+			$GoalsDB->execute();
+            $Goals = array();
+
+			while($Goal = $GoalsDB->fetch(PDO::FETCH_ASSOC)):
+              array_push($Goals, $Goal);
+            endwhile;
+          
+            echo json_encode($Goals);
+        }
 
 }
 
