@@ -4,6 +4,7 @@ include_once '../config.php';
 include_once ROOT_PATH.'/App/Models/Database.class.php';
 include_once ROOT_PATH.'/App/Models/Goal.class.php';
 include_once ROOT_PATH.'/App/Models/User.class.php';
+include_once ROOT_PATH.'/App/Models/Comment.class.php';
 include_once ROOT_PATH.'/App/Controllers/GoalController.class.php';
 include_once ROOT_PATH.'/App/Routes/RequestHandler.class.php';
 

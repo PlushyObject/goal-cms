@@ -33,21 +33,61 @@
         
             <?php 
 
+                $Goals = Goal::get_all_goals();
+
                 $TotalGoals = $Goals->rowCount();
                 $CompletedGoals = [];
                 
                 while ( $Goal = $Goals->fetchObject() ):
 				
 					if( $Goal->completed):
-						array_push( $CompletedGoals, $Goal->goal_id );
+						array_push( $CompletedGoals, $Goal );
 					endif;
 
 				endwhile;
                 
 
             ?>
+          
+              <?php 
+
+
+              $str = (count($CompletedGoals)/$TotalGoals);
+              $percent = round($str * 100 ) . '%';
         
-            <h1><?php echo count($CompletedGoals)?></h1>
+              ?>
+        
+            <p>Percentage of Total Goals Completed:</p><h3> <?php echo $percent; ?></h3>
+        
+            <?php 
+
+              $CurrentUserGoals = Goal::get_current_user_goals();
+  
+              $TotalUserGoals = $CurrentUserGoals->rowCount();
+              $CompletedUserGoals = [];
+                
+                while ( $Goal = $CurrentUserGoals->fetchObject() ):
+				
+					if( $Goal->completed):
+						array_push( $CompletedUserGoals, $Goal );
+					endif;
+
+				endwhile;
+              if($TotalUserGoals):
+                $strUser = (count($CompletedUserGoals)/$TotalUserGoals);
+                $percentUser = round($strUser * 100 ) . '%';
+              endif;
+              
+
+            ?>
+            
+        <?php if(!empty($percentUser)): ?>
+        
+          <p>Percentage of User Goals Completed:</p>
+          <h1><?php echo $percentUser; ?></h1>
+        
+        <?php endif; ?>
+        
       </div>
 	</div>
 </div>

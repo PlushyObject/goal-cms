@@ -32,9 +32,23 @@
 			
 			<hr>
 			<p><?php echo $Goal->description; ?></p>
-
-		</div>
+            <hr>
+            <?php $Comments = Comment::get_comments_by_goal_id($Goal->goal_id); ?>
+      
+            <?php while($Comment = $Comments->fetchObject()):  ?>
+            
+              <div class="well">
+                <?php echo $Comment->cmmnt_body; ?>
+              </div>
+      
+            <?php endwhile; ?>
+    </div>
 	</div>
+    <form id="comment-form-<?php echo $Goal->goal_id ?>" method="post" action="add_comment.php">
+      <input type="hidden" name="comment-goal-id" value="<?php echo $Goal->goal_id ?>"/>
+      <input class="form-control comment-input" name="goal-<?php echo $Goal->goal_id ?>-comment" />
+      <input type="submit" class="btn btn-info btn-lg" />
+    </form>
 </div>
   
   

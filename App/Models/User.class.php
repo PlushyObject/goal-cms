@@ -61,7 +61,7 @@ class User
 
 	}
 	
-	public function save_user($User)
+	public static function save_user($User)
 	{
 
 		$dbObject = new Database;

@@ -38,10 +38,10 @@ class Goal
 
 					$last_id = $db->lastInsertId();
 
-					$query2 = "INSERT INTO users_goals (goal_email, goal_id ) VALUES (:goal_email, :goal_id)";
+					$query2 = "INSERT INTO users_goals (user_email, goal_id ) VALUES (:user_email, :goal_id)";
 
 					$saveGoalToUser = $db->prepare($query2);
-					$saveGoalToUser->bindParam (":goal_email", $Goal->creator, PDO::PARAM_STR);
+					$saveGoalToUser->bindParam (":user_email", $Goal->creator, PDO::PARAM_STR);
 					$saveGoalToUser->bindParam (":goal_id", $last_id, PDO::PARAM_STR);
 					$saveGoalToUser->execute();
 

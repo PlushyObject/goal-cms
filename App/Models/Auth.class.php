@@ -21,8 +21,6 @@
         
         if($rowCount):
           return true;
-        else:
-          header('Location: /public_html/login?message=user_does_not_exist');
         endif;
         
         $db = null;
