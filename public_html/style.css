@@ -72,12 +72,21 @@ textarea.form-control {
   border-radius: 0px;
   border: none; }
   /* line 6, sass/_partials/_navbar.scss */
+  #goal-navbar .navbar-nav .open a {
+    background-color: #F15E27; }
+  /* line 10, sass/_partials/_navbar.scss */
   #goal-navbar a {
     color: #fff; }
-  /* line 10, sass/_partials/_navbar.scss */
+  /* line 14, sass/_partials/_navbar.scss */
   #goal-navbar #navbar-user-dropdown {
     background-color: #F15E27; }
-  /* line 15, sass/_partials/_navbar.scss */
+    /* line 16, sass/_partials/_navbar.scss */
+    #goal-navbar #navbar-user-dropdown.active {
+      background-color: #F15E27; }
+  /* line 22, sass/_partials/_navbar.scss */
+  #goal-navbar .dropdown-menu {
+    background-color: #F15E27; }
+  /* line 26, sass/_partials/_navbar.scss */
   #goal-navbar .navbar-nav > .active > a,
   #goal-navbar .navbar-nav > .active > a:focus,
   #goal-navbar .navbar-nav > .active > a:hover {
@@ -91,20 +100,23 @@ textarea.form-control {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px; }
   /* line 8, sass/_partials/_goal-card.scss */
+  .goal-card .btn-add-comment {
+    margin-top: 15px; }
+  /* line 12, sass/_partials/_goal-card.scss */
   .goal-card .completion-date {
     background-color: #40B25E;
     padding: 8px 16px;
     margin: 10px;
     display: inline-block;
     color: whitesmoke; }
-    /* line 15, sass/_partials/_goal-card.scss */
+    /* line 19, sass/_partials/_goal-card.scss */
     .goal-card .completion-date i {
       color: yellow; }
-  /* line 20, sass/_partials/_goal-card.scss */
+  /* line 24, sass/_partials/_goal-card.scss */
   .goal-card .goal-card-header-row {
     margin-left: -30px;
     margin-right: -30px; }
-  /* line 25, sass/_partials/_goal-card.scss */
+  /* line 29, sass/_partials/_goal-card.scss */
   .goal-card .goal-card-header {
     background: -webkit-linear-gradient(60deg, #5bc0de, #449DD9);
     /* For Safari 5.1 to 6.0 */
@@ -120,17 +132,17 @@ textarea.form-control {
     padding: 15px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px; }
-    /* line 37, sass/_partials/_goal-card.scss */
+    /* line 41, sass/_partials/_goal-card.scss */
     .goal-card .goal-card-header a > .goal-card-title {
       margin: 0px;
       color: #FFFFFF;
       font-weight: 300;
       line-height: 28px; }
-      /* line 43, sass/_partials/_goal-card.scss */
+      /* line 47, sass/_partials/_goal-card.scss */
       .goal-card .goal-card-header a > .goal-card-title:hover {
         color: whitesmoke;
         text-decoration: none; }
-    /* line 49, sass/_partials/_goal-card.scss */
+    /* line 53, sass/_partials/_goal-card.scss */
     .goal-card .goal-card-header .goal-card-info {
       margin: 10px 0px 0px; }
 

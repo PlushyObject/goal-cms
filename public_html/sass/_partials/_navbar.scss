@@ -3,14 +3,25 @@
 	border-radius: 0px;
 	border: none;
 	
+    .navbar-nav .open a{
+      background-color: $red;
+    }
+  
 	a{
 		color: #fff;	
 	}
 	
 	#navbar-user-dropdown{
 		background-color: #F15E27;
+      &.active{
+        background-color: #F15E27;
+      }
 		
 	}
+  
+  .dropdown-menu{
+    background-color: $red;
+  }
 	
 	.navbar-nav>.active>a,
 	.navbar-nav>.active>a:focus,

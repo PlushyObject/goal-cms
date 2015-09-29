@@ -1,7 +1,7 @@
             <?php
 				$endTime =  strtotime($Goal->endDate);
 				$currentTime = time();
-				$timeleft = $endTime-$currentTime;
+				$timeleft = $endTime - $currentTime;
 				$daysleft = round((($timeleft/24)/60)/60); 
 			?>
 
@@ -46,8 +46,8 @@
 	</div>
     <form id="comment-form-<?php echo $Goal->goal_id ?>" method="post" action="add_comment.php">
       <input type="hidden" name="comment-goal-id" value="<?php echo $Goal->goal_id ?>"/>
-      <input class="form-control comment-input" name="goal-<?php echo $Goal->goal_id ?>-comment" />
-      <input type="submit" class="btn btn-info btn-lg" />
+      <input class="form-control comment-input" placeholder="Add a Comment..." name="goal-<?php echo $Goal->goal_id ?>-comment" />
+      <input type="submit" class="btn btn-info btn-lg btn-add-comment" value="Add Comment"/>
     </form>
 </div>
   
